@@ -41,6 +41,10 @@ touch episode1.mp4 episode2.mkv episode3.mp4
 touch Subs/episode1/25_English.srt Subs/episode2/26_French.srt Subs/episode2/27_German.srt Subs/episode3/28_Spanish.srt Subs/episode3/29_Russian.srt Subs/episode3/30_English.srt Subs/episode1.sub Subs/episode1.idx Subs/episode2.sub Subs/episode2.idx
 cd ..
 
+touch Test.S06.test/episode1.mp4 Test.S06.test/Subs/episode1/31_English.srt Test.S06.test/Subs/episode1/32_French.srt Test.S06.test/Subs/episode1.sub Test.S06.test/Subs/episode1.idx Test.S06.test/episode2.mkv Test.S06.test/Subs/episode2/33_German.srt Test.S06.test/Subs/episode2/34_Spanish.srt Test.S06.test/Subs/episode2.sub Test.S06.test/Subs/episode2.idx Test.S06.test/episode3.mp4 Test.S06.test/Subs/episode3/35_Russian.srt Test.S06.test/Subs/episode3/36_Italian.srt Test.S07.test/episode1.mp4 Test.S07.test/Subs/episode1/37_Dutch.srt Test.S07.test/Subs/episode1/38_Arabic.srt Test.S07.test/Subs/episode1.sub Test.S07.test/Subs/episode1.idx Test.S07.test/episode2.mkv Test.S07.test/Subs/episode2/39_Portuguese.srt Test.S07.test/Subs/episode2/40_Ukrainian.srt Test.S07.test/Subs/episode2.sub Test.S07.test/Subs/episode2.idx Test.S07.test/episode3.mp4 Test.S07.test/Subs/episode3/41_Hindi.srt Test.S07.test/Subs/episode3/42_Tamil.srt
+
+
+
 ../script.sh
 
 # Test 1: Test sorting and organizing of subtitle files for a single season
@@ -172,6 +176,33 @@ then
   echo "Test 15 Passed"
 else
   echo "Test 15 Failed"
+fi
+
+cd ..
+
+# Test 4: Test sorting and organizing of subtitle files for multiple seasons with both .sub/.idx and .srt files
+cd Test.S06.test
+
+# Check that the subtitle files have been sorted and organized correctly
+if [ -f "episode1.eng.srt" ] && [ -f "episode1.fre.srt" ] && [ ! -f "Subs/episode1/31_English.srt" ] && [ ! -f "Subs/episode1/32_French.srt" ] && [ -f "episode1.sub" ] && [ -f "episode1.idx" ] && [ ! -f "Subs/episode1.sub" ] && [ ! -f "Subs/episode1.idx" ]
+then
+  echo "Test 16 Passed"
+else
+  echo "Test 16 Failed"
+fi
+
+if [ -f "episode2.ger.srt" ] && [ -f "episode2.spa.srt" ] && [ ! -f "Subs/episode2/33_German.srt" ] && [ ! -f "Subs/episode2/34_Spanish.srt" ] && [ -f "episode2.sub" ] && [ -f "episode2.idx" ] && [ ! -f "Subs/episode2.sub" ] && [ ! -f "Subs/episode2.idx" ]
+then
+  echo "Test 17 Passed"
+else
+  echo "Test 17 Failed"
+fi
+
+if [ -f "episode3.rus.srt" ] && [ -f "episode3.ita.srt" ] && [ ! -f "Subs/episode3/35_Russian.srt" ] && [ ! -f "Subs/episode3/36_Italian.srt" ]
+then
+  echo "Test 18 Passed"
+else
+  echo "Test 18 Failed"
 fi
 
 cd ..
