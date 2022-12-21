@@ -96,6 +96,7 @@ fi
 
 cd ..
 
+# Test 3: Test sorting and organizing of subtitle files for multiple seasons with different video file extensions
 cd Test.S03.test
 
 # Check that the subtitle files have been sorted and organized correctly
@@ -123,7 +124,6 @@ fi
 cd ..
 
 # Test 3: Test sorting and organizing of subtitle files for multiple seasons with different video file extensions
-
 cd Test.S04.test
 
 # Check that the subtitle files have been sorted and organized correctly
