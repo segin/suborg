@@ -1,3 +1,21 @@
+#!/bin/zsh
+# This test harness was mostly AI-generated using ChatGPT.
+#  
+# The following virtual seasons are for the following tests, as ChatGPT wrote them:
+# S01 - Test 1
+# S02, S03 - Test 2
+# S04, S05 - Test 3
+# S06, S07 - Test 4
+#
+# The descriptions of the tests as provided by ChatGPT: 
+# There are a total of 5 tests in the test harness that I provided. 
+# Test 1 covers the sorting and organizing of subtitle files for a single season with only one video file extension. 
+# Test 2 covers the sorting and organizing of subtitle files for multiple seasons with only one video file extension. 
+# Test 3 covers the sorting and organizing of subtitle files for multiple seasons with different video file extensions. 
+# Test 4 covers the sorting and organizing of subtitle files for multiple seasons with both .sub/.idx and .srt files. 
+# Test 5 covers the sorting and organizing of subtitle files for multiple seasons with .srt files for multiple languages.
+#
+
 # Test 1: Test sorting and organizing of subtitle files for a single season
 mkdir -p Test.{S01,S02,S03,S04,S05}.test/Subs/{episode1,episode2,episode3}
 cd Test.S01.test
@@ -128,6 +146,32 @@ then
   echo "Test 12 Passed"
 else
   echo "Test 12 Failed"
+fi
+
+cd ..
+
+cd Test.S05.test
+
+# Check that the subtitle files have been sorted and organized correctly
+if [ -f "episode1.eng.srt" ] && [ ! -f "Subs/episode1/25_English.srt" ] && [ -f "episode1.sub" ] && [ -f "episode1.idx" ] && [ ! -f "Subs/episode1.sub" ] && [ ! -f "Subs/episode1.idx" ]
+then
+  echo "Test 13 Passed"
+else
+  echo "Test 13 Failed"
+fi
+
+if [ -f "episode2.fre.srt" ] && [ -f "episode2.ger.srt" ] && [ ! -f "Subs/episode2/26_French.srt" ] && [ ! -f "Subs/episode2/27_German.srt" ] && [ -f "episode2.sub" ] && [ -f "episode2.idx" ] && [ ! -f "Subs/episode2.sub" ] && [ ! -f "Subs/episode2.idx" ]
+then
+  echo "Test 14 Passed"
+else
+  echo "Test 14 Failed"
+fi
+
+if [ -f "episode3.spa.srt" ] && [ -f "episode3.rus.srt" ] && [ -f "episode3.eng.srt" ] && [ ! -f "Subs/episode3/28_Spanish.srt" ] && [ ! -f "Subs/episode3/29_Russian.srt" ] && [ ! -f "Subs/episode3/30_English.srt" ]
+then
+  echo "Test 15 Passed"
+else
+  echo "Test 15 Failed"
 fi
 
 cd ..
