@@ -1,3 +1,4 @@
+#!/bin/zsh
 codes=(eng fre ger spa rus ita dut ara por ukr hin tam chi gre kor jap)
 names=(English French German Spanish Russian Italian Dutch Arabic Portugese ukr hin tam Chinese Greek Korean Japanese)
 
